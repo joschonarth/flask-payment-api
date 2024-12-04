@@ -70,6 +70,10 @@
         console.log("Payment confirmed");
         location.reload();
       });
+      socket.on('payment-expired-{{ payment_id }}', function() {
+        console.log("Payment expired");
+        window.location.href = `/payments/expired/{{ payment_id }}`;
+      });
     </script>
 
   </body>

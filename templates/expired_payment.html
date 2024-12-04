@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <title>Pagamento Expirado</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div id="qr-code">
+          <img src="{{ url_for('static', filename='template_img/qrcode.png') }}" alt="QR Code" />
+
+          <img
+            id="expired-icon"
+            src="{{ url_for('static', filename='template_img/expired.svg') }}"
+            alt="Ícone de pagamento expirado"
+          />
+        </div>
+
+        <aside>
+          <h1 id="title-text" style="color: #ff4c4c !important;">Pagamento Expirado</h1>
+          <p id="description">
+            O prazo para pagamento deste pedido expirou. Por favor, faça um novo pagamento.
+          </p>
+
+          <div id="expiration-info">
+            <p><strong>Data de Expiração:</strong> {{ expiration_date.strftime('%d/%m/%Y %H:%M:%S') }}</p>
+          </div>
+
+          <div id="purchase-value">
+            <img src="{{ url_for('static', filename='template_img/tag.svg') }}" alt="Ícone de tag" />
+            <span>Compra de R$ <strong id="amount">{{ value }}</strong></span>
+          </div>
+        </aside>
+      </header>
+
+      <footer>
+        <div id="expiration-time">
+          <img src="{{ url_for('static', filename='template_img/currency.svg') }}" alt="Ícone moeda" />
+          <span>O pagamento não foi confirmado a tempo.</span>
+        </div>
+
+        <div id="order">
+          <small>O número do seu pedido é</small>
+          <div>
+            <img src="{{ url_for('static', filename='template_img/basket.svg') }}" alt="Ícone do pedido" />
+            <span>{{ payment_id }}</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

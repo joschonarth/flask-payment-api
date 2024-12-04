@@ -37,7 +37,7 @@ main {
   height: 14.5rem;
 }
 
-#confirmed-icon {
+#confirmed-icon, #expired-icon {
   position: absolute;
 
   max-width: 4.93rem;
@@ -252,4 +252,27 @@ body main footer {
 #div-buttons{
   display: flex;
   align-items: flex-start;
+}
+
+.expired-payment {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+}
+
+#expiration-info {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px #ccc;
+  border-radius: 5px;
+}
+
+#expiration-info p {
+  font-size: 16px;
+  color: #333;
+}
+
+#expiration-info strong {
+  color: #4551e6;
 }
