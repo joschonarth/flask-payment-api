@@ -2,6 +2,14 @@
 
 Este projeto simula um sistema de pagamento em tempo real utilizando **Flask**, **Python** e **WebSockets**. O sistema permite a criação de pagamentos via Pix, confirmação de pagamento, monitoramento de pagamentos expirados e atualização em tempo real via **WebSockets** para os clientes conectados. 💳🔄
 
+<p align="center">
+    <img src="assets/payment.png" alt="Payment Page" width="75%">
+</p>
+<p align="center">
+    <img src="assets/payment-confirmed.png" alt="Payment Confirmed Page" width="45%">
+    <img src="assets/payment-expired.png" alt="Payment Expired Page" width="45%">
+</p>
+
 ## 🛠️ Tecnologias Utilizadas
 - 🐍 **Flask**: Framework web para Python.
 - 🌐 **WebSockets (via Flask-SocketIO)**: Comunicação em tempo real entre o servidor e o cliente.
