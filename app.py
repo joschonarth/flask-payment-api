@@ -75,6 +75,14 @@ def payment_pix_page(payment_id):
     if not payment:
         return render_template('404.html')
 
+    if not payment.paid and payment.expiration_date < datetime.now():
+        return render_template(
+            'expired_payment.html',
+            payment_id=payment.id,
+            value=payment.value,
+            expiration_date=payment.expiration_date
+        )
+
     if payment.paid:
         return render_template(
             'confirmed_payment.html',
@@ -88,20 +96,6 @@ def payment_pix_page(payment_id):
         value=payment.value, 
         host="http://127.0.0.1:5000", 
         qr_code=payment.qr_code
-    )
-
-@app.route('/payments/expired/<int:payment_id>', methods=['GET'])
-def payment_expired_page(payment_id):
-    payment = Payment.query.get(payment_id)
-
-    if not payment:
-        return render_template('404.html')
-
-    return render_template(
-        'expired_payment.html',
-        payment_id=payment.id,
-        value=payment.value,
-        expiration_date=payment.expiration_date
     )
 
 def check_expired_payments():

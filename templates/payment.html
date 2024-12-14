@@ -72,7 +72,7 @@
       });
       socket.on('payment-expired-{{ payment_id }}', function() {
         console.log("Payment expired");
-        window.location.href = `/payments/expired/{{ payment_id }}`;
+        location.reload();
       });
     </script>
 
