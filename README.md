@@ -2,13 +2,15 @@
 
 Este projeto simula um sistema de pagamento em tempo real utilizando **Flask**, **Python** e **WebSockets**. O sistema permite a criação de pagamentos via Pix, confirmação de pagamento, monitoramento de pagamentos expirados e atualização em tempo real via **WebSockets** para os clientes conectados. 💳🔄
 
-<p align="center">
-    <img src="assets/payment.png" alt="Payment Page" width="75%">
+![Payment Page](assets/payment.png)
+
+<!-- <p align="center">
+    <img src="assets/payment.png" alt="Payment Page" width="90%">
 </p>
 <p align="center">
     <img src="assets/payment-confirmed.png" alt="Payment Confirmed Page" width="45%">
     <img src="assets/payment-expired.png" alt="Payment Expired Page" width="45%">
-</p>
+</p> -->
 
 ## 🛠️ Tecnologias Utilizadas
 - 🐍 **Flask**: Framework web para Python.
@@ -107,9 +109,13 @@ python app.py
     * `payment-confirmed-{payment_id}`: Quando um pagamento é confirmado. ✅
     * `payment-expired-{payment_id}`: Quando um pagamento expira. ⏰
 
+![Payment Page](assets/payment-confirmed.png)
+
 ## ⏰ Agendamento de Verificação de Pagamentos Expirados
 
 A cada 1 minuto, o sistema verifica pagamentos que não foram confirmados e estão expirados. Se algum for encontrado, um evento `payment-expired-{payment_id}` é emitido. 🔄
+
+![Payment Page](assets/payment-expired.png)
 
 ## 🧪 Como Testar
 
